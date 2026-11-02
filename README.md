@@ -18,7 +18,7 @@ Serum kreatinin ve ejeksiyon fraksiyonu gibi klinik değişkenler kullanılarak 
 | Örnek sayısı | 299 hasta / kayıt |
 | Öznitelik sayısı | 12 |
 | Hedef | DEATH_EVENT (Takip süresi içinde ölüm durumu: 0 = Hayatta, 1 = Vefat) |
-| Sınıf oranı | <%> |
+| Sınıf oranı | %32.1 Vefat (96 hasta), %67.9 Hayatta (203 hasta) |
 | Lisans / erişim | Açık Erişim |
 
 ## Yöntem (kısaca)
