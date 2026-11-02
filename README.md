@@ -1,25 +1,25 @@
-# <Proje başlığı>
+# Kalp Yetmezliğinde Ölüm Riski Tahmini
 
 > SVY 5430 Biyomedikal Verilerin Analizi ve Yapay Zeka · Fırat Üniversitesi YBAE · 2026–2027 Güz
-> Proje kodu: **BVYZ-XX** · Öğrenci: <Ad Soyad>
+> Proje kodu: **BVYZ-01** · Öğrenci: Esranur Altınay
 
 Bu depo, dönem projesinin tüm kodunu, çalıştırılabilir defterlerini ve LaTeX raporunu içerir.
 **Veri dosyaları depoya konmaz**; `data/README.md` verinin nereden ve nasıl indirileceğini anlatır.
 
 ## Klinik soru
 
-Bir–iki cümleyle: Hangi hastalar için, hangi sonucu, hangi veriyle tahmin ediyorsunuz ve bu neden önemli?
+Serum kreatinin ve ejeksiyon fraksiyonu gibi klinik değişkenler kullanılarak kalp yetmezliği hastalarının ölüm riskinin tahmin edilip edilemeyeceği incelenmiştir. Bu çalışma, yüksek riskli hastaların erken tanınması ve klinik müdahale süreçlerinin optimize edilmesi açısından kritik önem taşır.
 
 ## Veri
 
 | | |
 |---|---|
-| Kaynak | <ad ve bağlantı> |
-| Örnek sayısı | <n hasta / n kayıt> |
-| Öznitelik sayısı | <p> |
-| Hedef | <değişken ve tanımı> |
+| Kaynak | UCI Heart Failure Clinical Records Dataset |
+| Örnek sayısı | 299 hasta / kayıt |
+| Öznitelik sayısı | 12 |
+| Hedef | DEATH_EVENT (Takip süresi içinde ölüm durumu: 0 = Hayatta, 1 = Vefat) |
 | Sınıf oranı | <%> |
-| Lisans / erişim | <açık, kayıt gerekli vb.> |
+| Lisans / erişim | Açık Erişim |
 
 ## Yöntem (kısaca)
 
