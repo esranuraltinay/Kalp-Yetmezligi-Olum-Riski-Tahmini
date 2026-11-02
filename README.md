@@ -14,7 +14,7 @@ Serum kreatinin ve ejeksiyon fraksiyonu gibi klinik değişkenler kullanılarak 
 
 | | |
 |---|---|
-| Kaynak | UCI Heart Failure Clinical Records Dataset |
+| Kaynak | [UCI Heart Failure Clinical Records Dataset](https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records) |
 | Örnek sayısı | 299 hasta / kayıt |
 | Öznitelik sayısı | 12 |
 | Hedef | DEATH_EVENT (Takip süresi içinde ölüm durumu: 0 = Hayatta, 1 = Vefat) |
