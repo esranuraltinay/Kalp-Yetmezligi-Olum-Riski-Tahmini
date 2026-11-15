@@ -56,17 +56,12 @@ data/        README.md (indirme talimatı) — veri dosyası YOK
 
 ## Tekrarlanabilirlik
 
--Rastgelelik tohumu: SEED = 42
 
--Bölme stratejisi: 5 katlı dış ve 3 katlı iç StratifiedKFold
-
--Katmanlama değişkeni: DEATH_EVENT
-
--Bölme birimi: Hasta kaydı (her hasta veri setinde tek kayıtla temsil edilir).
-
--Ön işleme: Pipeline içerisinde gerçekleştirilir; ölçeklendirme yalnızca ilgili eğitim katında öğrenilir.
-
--Ortam: requirements.txt
+- Rastgelelik tohumu: `SEED = 42`
+- Bölme stratejisi: 5 katlı dış ve 3 katlı iç `StratifiedKFold`
+- Katmanlama değişkeni: `DEATH_EVENT`
+- Ön işleme: `Pipeline` içerisinde gerçekleştirilir ve ölçeklendirme yalnızca ilgili eğitim katında öğrenilir.
+- Ortam: `requirements.txt` (kütüphane sürümleri belirtilmiştir).
 
 ## Kaynaklar
 
