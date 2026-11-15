@@ -23,23 +23,24 @@ Serum kreatinin ve ejeksiyon fraksiyonu gibi klinik değişkenler kullanılarak 
 
 ## Yöntem (kısaca)
 
-Ön işleme → model → değerlendirme → açıklama zincirini üç–dört cümleyle yazın. Ayrıntı raporda.
+Veri setinde eksik ve yinelenen kayıtlar kontrol edilmiş, aykırı değerler incelenmiş ve tahmin anında bilinmeyen takip süresini temsil eden time değişkeni model girdilerinden çıkarılmıştır. Sürekli değişkenler StandardScaler ile ölçeklendirilmiş, ikili değişkenler mevcut 0/1 değerleriyle bırakılmıştır. Temel model olarak Lojistik Regresyon kullanılmıştır. Hiperparametre seçimi için 3 katlı iç, model değerlendirmesi için 5 katlı dış StratifiedKFold çapraz doğrulama uygulanmıştır. Ön işleme ve model adımları Pipeline içerisinde birleştirilerek veri sızıntısı önlenmeye çalışılmıştır.
 
 ## Sonuçlar (kısaca)
 
 | Model | ROC-AUC | PR-AUC | Kalibrasyon (Brier) |
 |---|---|---|---|
-| Temel (lojistik) | | | |
+| Temel (Lojistik Regresyon) |0.7832 |0.6578 |0.1910 |
 | <Model 2> | | | |
 
-Bir cümle: en önemli bulgu ne?
+Lojistik Regresyon modeli genel ayırt etme performansı göstermiş olsa da varsayılan 0.50 karar eşiğinde ölüm olaylarının yalnızca %7,29'unu yakalamıştır. Bu nedenle pozitif sınıfı yakalama başarısının geliştirilmesi gerekmektedir.
 
 ## Nasıl çalıştırılır
 
 ```bash
-# Colab: notebooks/ altındaki defterleri sırayla açın; her defterin ilk hücresi veriyi indirir.
+# Colab: notebooks/ altındaki defterleri sırayla açın; her defterin ilk hücresi veriyi indirir. Sırasıyla hücreleri çalıştırın. Veri setinin indirilmesi ve dosya yolları için defterlerdeki açıklamaları takip edin.
 # Yerel:
-conda create -n proje python=3.12 -y && conda activate proje
+conda create -n proje python=3.12 -y
+conda activate proje
 pip install -r requirements.txt
 jupyter lab
 ```
@@ -47,17 +48,25 @@ jupyter lab
 ## Depo yapısı
 
 ```
-notebooks/   01_veri_kesif.ipynb · 02_model.ipynb · 03_aciklama.ipynb
-src/         yeniden kullanılan fonksiyonlar (ön işleme, metrikler, çizimler)
+notebooks/   01_baslangic.ipynb · 02_model.ipynb · 03_aciklama.ipynb
+src/         yeniden kullanılan fonksiyonlar
 rapor/       main.tex, kaynaklar.bib, sekiller/ ve derlenmiş rapor.pdf
 data/        README.md (indirme talimatı) — veri dosyası YOK
 ```
 
 ## Tekrarlanabilirlik
 
-- Rastgelelik tohumu: `SEED = 42` (tüm defterlerde)
-- Bölme stratejisi: <StratifiedKFold / GroupKFold(hasta) / zaman-farkında>
-- Ortam: `requirements.txt` (sürümler sabit)
+-Rastgelelik tohumu: SEED = 42
+
+-Bölme stratejisi: 5 katlı dış ve 3 katlı iç StratifiedKFold
+
+-Katmanlama değişkeni: DEATH_EVENT
+
+-Bölme birimi: Hasta kaydı (her hasta veri setinde tek kayıtla temsil edilir).
+
+-Ön işleme: Pipeline içerisinde gerçekleştirilir; ölçeklendirme yalnızca ilgili eğitim katında öğrenilir.
+
+-Ortam: requirements.txt
 
 ## Kaynaklar
 
